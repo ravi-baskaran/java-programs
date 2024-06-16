@@ -18,7 +18,7 @@ public class EmployeeDemo {
 		Employee e2 = new Employee();
 		e2.setName("a");
 		
-		System.out.println(e1.equals(e2));
+	//	System.out.println(e1.equals(e2));
 		
 
 //		List<Employee> employee = Arrays.asList(new Employee("ravi", "dev", 25, 1500, "male"),
@@ -33,8 +33,15 @@ public class EmployeeDemo {
 		employee.add(new Employee("raj", "hr", 26, 1300, "male"));
 		employee.add(new Employee("sam", "dev", 35, 1200, "female"));
 		employee.add(new Employee("arun", "hr", 55, 1800, "male"));
+		employee.add(new Employee("deepa", "dev", 22, 800, "female"));
 		employee.add(new Employee("surya", "dev", 22, 1200, "female"));
-		
+
+		Employee minSl = employee.stream().filter(e -> e.getDepartment().equalsIgnoreCase("dev"))
+				.min(Comparator.comparing(Employee::getSalary)).get();
+		System.out.println(minSl);
+
+
+		System.out.println("---------------------");
 		
 		
 		
